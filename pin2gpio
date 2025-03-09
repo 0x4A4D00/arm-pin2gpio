@@ -1,0 +1,21 @@
+#!/bin/bash
+
+calculate_gpio() 
+{
+    input=$(echo "$1" | tr '[:lower:]' '[:upper:]')
+    letter=${input:0:2}
+    pin=${input:2}
+
+    pin_letter=${letter:1:2}
+    position=$(( $(printf "%d" "'$pin_letter") - 64 ))
+
+    gpio_number=$(( (position - 1) * 32 + pin ))
+    echo "GPIO number: $gpio_number"
+}
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <pin>"
+    exit 1
+fi
+
+calculate_gpio "$1"
