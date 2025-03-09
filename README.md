@@ -1,2 +1,10 @@
 # arm-pin2gpio
-bash script to convert pin name to gpio number.
+A bash script to convert pin names to GPIO numbers.
+
+## usage
+
+```
+$ chmod +x pin2gpio
+$ ./pin2gpio PC30
+GPIO number: 94
+```
